@@ -1,0 +1,8 @@
+= render CardComponent.new(title: title) do
+  .row
+    .col-2
+      = render SorterComponent.new(options: sort_options, param_name: sort_param)
+  .row
+    = render MultiColumnComponent.new(columns: columns, collection: collection, item_renderer: item_renderer)
+
+  = pagy_bootstrap_nav(pagy).html_safe if pagy.pages > 1

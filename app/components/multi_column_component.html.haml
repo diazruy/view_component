@@ -1,0 +1,6 @@
+.row
+  - collection.in_groups(columns, false) do |items|
+    .col
+      %ul
+        - items.each do |item|
+          %li= render item_renderer.new(item)
