@@ -1,5 +1,5 @@
 .card.mb-3
-  - if @title
-    %header.card-header= @title
+  - if header? || title
+    %header.card-header= header || title
   .card-body
     = content

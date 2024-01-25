@@ -1,4 +1,6 @@
-= render CardComponent.new(title: title) do
+= render CardComponent.new do |card_component|
+  - card_component.with_header do
+    %h1= title
   .row
     .col-2
       = render SorterComponent.new(options: sort_options, param_name: sort_param)

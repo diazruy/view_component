@@ -1,6 +1,7 @@
 .row
   - collection.in_groups(columns, false) do |items|
     .col
-      %ul
+      = render ListComponent.new do |list_component|
         - items.each do |item|
-          %li= render item_renderer.new(item)
+          - list_component.with_item do
+            = render item_renderer.new(item)
