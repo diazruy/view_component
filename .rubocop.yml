@@ -1,0 +1,95 @@
+AllCops:
+  Exclude:
+    - "lib/tasks/auto_annotate_models.rake"
+    - "app/protobuf/build/**/*.rb"
+    - "db/schema.rb"
+    - "bin/{bundle,rails,rake,setup,spring,webpack,webpack-dev-server,yarn}"
+    - "tmp/**/*"
+    - "config.ru"
+    - "config/boot.rb"
+  NewCops: enable
+  TargetRubyVersion: 3.0
+
+Layout/LineLength:
+  Exclude:
+    - "spec/integration/api/models/**/*"
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - "spec/**/*_spec.rb"
+
+Lint/ParenthesesAsGroupedExpression:
+  Exclude:
+    - "lib/primary/HL7/segment/*.rb"
+
+Metrics/AbcSize:
+  CountRepeatedAttributes: false
+  Exclude:
+    - "db/migrate/*.rb"
+    - "lib/generators/**/*_generator.rb"
+  AllowedMethods:
+    - required_fields
+  Max: 20
+
+Metrics/BlockLength:
+  Exclude:
+    - "app/admin/**/*.rb"
+    - "app/**/*.html.arb"
+    - "spec/**/*_spec.rb"
+    - "spec/factories/**/*.rb"
+    - "spec/support/shared_examples/**/*.rb"
+    - "config/environments/*.rb"
+    - "config/initializers/inflections.rb"
+    - "lib/tasks/*.rake"
+  AllowedMethods:
+    - class_methods
+
+Metrics/ClassLength:
+  Exclude:
+    - "app/services/entities/**/*_{importer,exporter}.rb"
+    - "app/services/connectors/sftp.rb"
+    - "app/services/translators/order_exporter/hl7.rb"
+    - "app/controllers/api/v1/results_controller.rb"
+    - "app/controllers/api/v1/orders_controller.rb"
+    - "app/models/entity.rb"
+
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - "lib/generators/**/*_generator.rb"
+  AllowedMethods:
+    - required_fields
+
+Metrics/MethodLength:
+  Exclude:
+    - "db/migrate/**/*"
+    - "lib/generators/**/*_generator.rb"
+    - "spec/integration/api/models/**/*"
+  AllowedMethods:
+    - required_fields
+
+Metrics/PerceivedComplexity:
+  Exclude:
+    - "lib/generators/**/*_generator.rb"
+  AllowedMethods:
+    - required_fields
+
+Naming/FileName:
+  Exclude:
+    - "app/services/entities/MTL.rb"
+    - "lib/primary/HL7/segment/*.rb"
+    - "lib/HL7/data_types/*.rb"
+
+Naming/VariableNumber:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+  Exclude:
+    - "lib/**/*.rb"
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - "db/migrate/**/*"
