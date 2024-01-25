@@ -2,27 +2,6 @@
 %small.d-block
   #{character.klass} | #{character.race}
 %ul.list-inline.small.font-monospace
-  %li.list-inline-item{title: 'Strength'}
-    %i.fa.fa-fw.fa-solid.fa-dumbbell
-    S:
-    = character.strength.to_s.rjust(2, ' ').gsub(' ', '&nbsp;').html_safe
-  %li.list-inline-item{title: 'Dexterity'}
-    %i.fa.fa-fw.fa-solid.fa-feather-pointed
-    D:
-    = character.dexterity.to_s.rjust(2, ' ').gsub(' ', '&nbsp;').html_safe
-  %li.list-inline-item{title: 'Constitution'}
-    %i.fa.fa-fw.fa-solid.fa-shield-halved
-    C:
-    = character.constitution.to_s.rjust(2, ' ').gsub(' ', '&nbsp;').html_safe
-  %li.list-inline-item{title: 'Intelligence'}
-    %i.fa.fa-fw.fa-solid.fa-brain
-    I:
-    = character.intelligence.to_s.rjust(2, ' ').gsub(' ', '&nbsp;').html_safe
-  %li.list-inline-item{title: 'Wisdom'}
-    %i.fa.fa-fw.fa-solid.fa-book-journal-whills
-    W:
-    = character.wisdom.to_s.rjust(2, ' ').gsub(' ', '&nbsp;').html_safe
-  %li.list-inline-item{title: 'Charisma'}
-    %i.fa.fa-fw.fa-solid.fa-user-group
-    K:
-    = character.charisma.to_s.rjust(2, ' ').gsub(' ', '&nbsp;').html_safe
+  - abilities.each do |ability|
+    %li.list-inline-item
+      = render CharacterAbilityComponent.new(**ability)
