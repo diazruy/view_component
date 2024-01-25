@@ -25,6 +25,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_24_234419) do
     t.string "race"
     t.string "klass"
     t.integer "hit_points"
+    t.integer "strength"
+    t.integer "dexterity"
+    t.integer "constitution"
+    t.integer "intelligence"
+    t.integer "wisdom"
+    t.integer "charisma"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
