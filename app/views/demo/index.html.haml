@@ -1,29 +1,18 @@
 %h2 View Components
-= render CardComponent.new do |component|
-  - component.with_header do
-    %h3
-      %i.fa.fa-solid.fa-book-open-reader
-      Books
-  .row
-    .col-2
-      - options = [['Title', 'title'], ['Author', 'author'], ['Genre', 'genre']]
-      = render SorterComponent.new(options: options, param_name: :books_sort_by)
-  = render MultiColumnListComponent.new(collection: @books,
-    columns: 2,
-    item_renderer: BookItemComponent)
+= render PaginatedListCardComponent.new(collection: @books,
+  columns: 2,
+  item_renderer: BookItemComponent,
+  sort_options: [['Title', 'title'], ['Author', 'author'], ['Genre', 'genre']],
+  sort_param: :books_sort_by,
+  title: 'Books',
+  icon: 'book-open-reader',
+  pagy: @pagy_books)
 
-  = pagy_bootstrap_nav(@pagy_books).html_safe if @pagy_books.pages > 1
-
-= render CardComponent.new do | component|
-  - component.with_header do
-    %h3
-      %i.fa.fa-solid.fa-people-group
-      Characters
-  .row
-    .col-2
-      - options = [['First Name', 'first_name'], ['Last Name', 'last_name'], ['Race', 'race'], ['Class', 'klass']]
-      = render SorterComponent.new(options: options, param_name: :characters_sort_by)
-    = render MultiColumnListComponent.new(collection: @characters,
-      columns: 4,
-      item_renderer: CharacterItemComponent)
-  = pagy_bootstrap_nav(@pagy_characters).html_safe if @pagy_characters.pages > 1
+= render PaginatedListCardComponent.new(collection: @characters,
+  columns: 4,
+  item_renderer: CharacterItemComponent,
+  sort_options: [['First Name', 'first_name'], ['Last Name', 'last_name'], ['Race', 'race'], ['Class', 'klass']],
+  sort_param: :characters_sort_by,
+  title: 'Characters',
+  icon: 'people-group',
+  pagy: @pagy_characters)
