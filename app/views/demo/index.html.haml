@@ -1,18 +1,3 @@
 %h2 View Components
-= render PaginatedListCardComponent.new(collection: @books,
-  columns: 2,
-  item_renderer: BookItemComponent,
-  sort_options: [['Title', 'title'], ['Author', 'author'], ['Genre', 'genre']],
-  sort_param: :books_sort_by,
-  title: 'Books',
-  icon: 'book-open-reader',
-  pagy: @pagy_books)
-
-= render PaginatedListCardComponent.new(collection: @characters,
-  columns: 4,
-  item_renderer: CharacterItemComponent,
-  sort_options: [['First Name', 'first_name'], ['Last Name', 'last_name'], ['Race', 'race'], ['Class', 'klass']],
-  sort_param: :characters_sort_by,
-  title: 'Characters',
-  icon: 'people-group',
-  pagy: @pagy_characters)
+= render BookListComponent.new(books: @books, pagy: @pagy_books)
+= render CharacterListComponent.new(characters: @characters, pagy: @pagy_characters)
