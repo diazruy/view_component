@@ -40,3 +40,6 @@
               = render CharacterItemComponent.new(character)
 
   = pagy_bootstrap_nav(@pagy_characters).html_safe if @pagy_characters.pages > 1
+
+= render CardComponent.new do
+  Hello World

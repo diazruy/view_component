@@ -1,4 +1,5 @@
 .card.mb-3
-  %header.card-header= header || title
+  - if header? || title
+    %header.card-header= header || title
   .card-body
     = content
