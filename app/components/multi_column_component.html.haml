@@ -1,0 +1,7 @@
+.row
+  - collection.in_groups(columns, false) do |items|
+    .col
+      = render ListComponent.new do |list_component|
+        - items.each do |item|
+          - list_component.with_item do
+            = render item_renderer.new(item)

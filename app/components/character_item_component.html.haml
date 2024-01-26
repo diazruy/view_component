@@ -1,0 +1,7 @@
+= full_name
+%small.d-block
+  #{character.klass} | #{character.race}
+%ul.list-inline.small.font-monospace
+  - abilities.each do |ability|
+    %li.list-inline-item
+      = render CharacterAbilityComponent.new(**ability)
