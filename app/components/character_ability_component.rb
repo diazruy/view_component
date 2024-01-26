@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 class CharacterAbilityComponent < ApplicationComponent
+  haml_template <<~HAML
+    %div{title: ability}
+      %i.fa.fa-fw.fa-solid{class: fa_icon}
+      \#{ability_initial}:
+      = padded_score.html_safe
+  HAML
   attr_reader :ability, :score, :icon, :ability_initial
 
   def initialize(ability:, score:, icon:, ability_initial: nil)
