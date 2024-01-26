@@ -1,29 +1,7 @@
-= "#{character.last_name}, #{character.first_name}"
+= full_name
 %small.d-block
   #{character.klass} | #{character.race}
 %ul.list-inline.small.font-monospace
-  %li.list-inline-item
-    = render CharacterAbilityComponent.new(ability: 'Strength',
-      score: character.strength,
-      icon: 'dumbbell')
-  %li.list-inline-item
-    = render CharacterAbilityComponent.new(ability: 'Dexterity',
-      score: character.dexterity,
-      icon: 'feather-pointed')
-  %li.list-inline-item
-    = render CharacterAbilityComponent.new(ability: 'Constitution',
-      score: character.constitution,
-      icon: 'shield-halved')
-  %li.list-inline-item
-    = render CharacterAbilityComponent.new(ability: 'Intelligence',
-      score: character.intelligence,
-      icon: 'brain')
-  %li.list-inline-item
-    = render CharacterAbilityComponent.new(ability: 'Wisdom',
-      score: character.wisdom,
-      icon: 'book-journal-whills')
-  %li.list-inline-item
-    = render CharacterAbilityComponent.new(ability: 'Charisma',
-      score: character.charisma,
-      icon: 'user-group',
-      ability_initial: 'K')
+  - abilities.each do |ability|
+    %li.list-inline-item
+      = render CharacterAbilityComponent.new(**ability)
