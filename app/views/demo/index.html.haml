@@ -1,5 +1,9 @@
 %h2 View Components
-= render CardComponent.new(title: 'Books') do
+= render CardComponent.new do |component|
+  - component.with_header do
+    %h3
+      %i.fa.fa-solid.fa-book-open-reader
+      Books
   .row
     .col-2
       %form.mb-3.d-flex{method: :get}
@@ -16,7 +20,11 @@
 
   = pagy_bootstrap_nav(@pagy_books).html_safe if @pagy_books.pages > 1
 
-= render CardComponent.new(title: 'Characters') do
+= render CardComponent.new do | component|
+  - component.with_header do
+    %h3
+      %i.fa.fa-solid.fa-people-group
+      Characters
   .row
     .col-2
       %form.mb-3.d-flex{method: :get}
