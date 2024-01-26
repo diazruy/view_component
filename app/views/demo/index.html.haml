@@ -14,25 +14,7 @@
           %ul
             - books.each do |book|
               %li
-                :ruby
-                  icon = case book.genre
-                  when /Science fiction/ then  :alien
-                  when /Fantasy/ then :dragon
-                  when /Mystery/ then :eye
-                  when /Romance/ then :heart
-                  when /Thriller/ then :skull
-                  when /Biography/ then :user
-                  when /Legend/ then :scroll
-                  when /Fairy/ then :'wand-sparkles'
-                  when /Speech/ then :comment
-                  else :book
-                  end
-                %i.fa.fa-fw.fa-lg{class: "fa-#{icon}"}
-                = book.title
-                %small.d-block
-                  - first_name, last_name = book.author.split(' ')
-                  = "#{last_name}, #{first_name}"
-                %small.text-muted.d-block= book.genre
+                = render BookItemComponent.new(book)
 
     = pagy_bootstrap_nav(@pagy_books).html_safe if @pagy_books.pages > 1
 
