@@ -1,15 +1,19 @@
 # frozen_string_literal: true
 
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe CharacterItemComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:character) { build :character }
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+  before do
+    render_inline(described_class.new(character))
+  end
+
+  it 'renders the character name' do
+    expect(page).to have_content("#{character.last_name}, #{character.first_name}")
+  end
+
+  it 'renders the abilities' do
+    expect(page).to have_css('ul li', count: 6)
+  end
 end

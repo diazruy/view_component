@@ -4,8 +4,8 @@ class CharacterAbilityComponent < ApplicationComponent
   haml_template <<~HAML
     %div{title: ability}
       %i.fa.fa-fw.fa-solid{class: fa_icon}
-      \#{ability_initial}:
-      = padded_score.html_safe
+      %span \#{ability_initial}:
+      %span= padded_score.html_safe
   HAML
   attr_reader :ability, :score, :icon, :ability_initial
 
