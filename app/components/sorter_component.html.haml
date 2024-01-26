@@ -1,0 +1,6 @@
+%form.mb-3.d-flex{method: :get}
+  = select_tag param_name,
+    options_for_select(options, params[param_name]),
+    include_blank: 'Sort by',
+    class: 'form-select me-2'
+  %button.btn.btn-primary{type: :submit} Sort
